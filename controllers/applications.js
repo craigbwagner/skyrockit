@@ -27,11 +27,11 @@ async function create(req, res) {
 
 async function show(req, res) {
 	try {
-        const currrentUser = await.User.findById(req.session.user._id);
-        const application = currentUser.applications.id(req.params.applicationId);
-        res.render('applications/show.ejs', {application: application,})
+        const currentUser = await User.findById(req.session.user._id);
+		const application = currentUser.applications.id(req.params.applicationId);
+		res.render('applications/show.ejs', { application });
 	} catch (err) {
-        console.log(error);
+        console.log(err);
         res.redirect('');
     }
 }
