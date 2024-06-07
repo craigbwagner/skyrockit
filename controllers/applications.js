@@ -8,4 +8,8 @@ async function index(req, res) {
 	}
 }
 
-module.exports = { index };
+function newAppForm(req, res) {
+	res.render('applications/new.ejs');
+}
+
+module.exports = { index, new: newAppForm };
