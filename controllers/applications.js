@@ -25,4 +25,15 @@ async function create(req, res) {
 	}
 }
 
-module.exports = { index, new: newAppForm, create };
+async function show(req, res) {
+	try {
+        const currrentUser = await.User.findById(req.session.user._id);
+        const application = currentUser.applications.id(req.params.applicationId);
+        res.render('applications/show.ejs', {application: application,})
+	} catch (err) {
+        console.log(error);
+        res.redirect('');
+    }
+}
+
+module.exports = { index, new: newAppForm, create, show };
