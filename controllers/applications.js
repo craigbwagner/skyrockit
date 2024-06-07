@@ -48,4 +48,17 @@ async function deleteApplication(req, res) {
 	}
 }
 
-module.exports = { index, new: newAppForm, create, show, deleteApplication };
+async function edit(req, res) {
+	try {
+		const currentUser = await User.findById(req.session.user._id);
+		const application = currentUser.applications.id(req.params.applicationId);
+		res.render('applications/edit.ejs', {
+			application: application,
+		});
+	} catch (error) {
+		console.log(error);
+		res.redirect('/');
+	}
+}
+
+module.exports = { index, new: newAppForm, create, show, deleteApplication, edit };
