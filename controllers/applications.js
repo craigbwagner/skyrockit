@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 async function index(req, res) {
 	try {
-		res.render('application');
+		res.render('applications/index.ejs');
 	} catch (err) {
 		res.redirect('/');
 	}
