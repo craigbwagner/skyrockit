@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/user/applications', require('./routes/applications.js'));
+app.use('/user/:userId/applications', require('./routes/applications.js'));
 
 app.listen(port, () => {
 	console.log(`The express app is ready on port ${port}!`);
