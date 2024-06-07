@@ -1,3 +1,11 @@
 const User = require('../models/user');
 
-module.exports = {};
+async function index(req, res) {
+	try {
+		res.render('application');
+	} catch (err) {
+		res.redirect('/');
+	}
+}
+
+module.exports = { index };
