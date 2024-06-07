@@ -6,5 +6,6 @@ router.get('/', applicationCtrl.index);
 router.get('/new', applicationCtrl.new);
 router.post('/', applicationCtrl.create);
 router.get('/:applicationId', applicationCtrl.show);
+router.delete('/:applicationId', applicationCtrl.delete);
 
 module.exports = router;
